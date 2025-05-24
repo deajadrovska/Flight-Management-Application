@@ -16,7 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from application import views as FlightApplicationViews
+from django.conf.urls.static import static
+from django.conf import settings
+
+import Flight_Application
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    path('index/', FlightApplicationViews.index, name='index'),
+    path('details/<flight_id>', FlightApplicationViews.details, name='details'),
+    path('add_flight/', FlightApplicationViews.add_flight, name='add_flight'),
+    path('edit_flight/<flight_id>', FlightApplicationViews.edit_flight, name='edit_flight'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

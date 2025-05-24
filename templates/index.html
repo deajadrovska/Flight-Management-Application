@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+        <div class="container mt-2 mb-3">
+        
+        
+        <div class="row mt-2">
+            {% for flight in flights %}
+                <div class="col-4 mt-5"> 
+                <div class="card " style="width: 18rem;">
+                    <img src="{{flight.image.url}}" class="card-img-top" alt="balloon">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ flight.flight_number }}</h5>
+                        <p class="card-text">{{ flight.take_off_airport }} - {{ flight.landing_airport }}</p>
+                        <a href="{% url 'details' flight.id %}" class="btn btn-primary">Details</a>
+                        <a href="{% url 'edit_flight' flight.id %}" class="btn btn-primary">Edit</a>
+                    </div>
+                </div>
+                </div>
+            {% endfor %}
+        </div>
+        </div>
+    
+
+{% endblock %}

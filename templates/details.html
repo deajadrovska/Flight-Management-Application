@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container mt-5" style="margin-bottom: 270px">
+        <div class="card mb-3" style="">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{flight.image.url}}" class="img-fluid rounded-start" alt="flight">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ flight.flight_number }}</h5>
+                        <p class="card-text">{{ flight.take_off_airport }} - {{ flight.landing_airport }}</p>
+                        <p class="card-text"><small class="text-body-secondary">{{ flight.pilot.name }}</small></p>
+                        <a href="{% url 'index' %}" class="btn btn-primary">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+{%  endblock %}

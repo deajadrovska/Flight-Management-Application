@@ -31,6 +31,10 @@ class FlightAdmin(admin.ModelAdmin):
     def has_delete_permission(self, request, obj=None):
         return request.user.is_superuser
 
+
+    # def get_queryset(self, request):
+    #     return Flight.objects.filter(user=request.user)
+
 class PilotAdmin(admin.ModelAdmin):
     list_display = ('name', 'surname')
 
